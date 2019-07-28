@@ -1,4 +1,4 @@
-const { registerClient, deleteClient } = require('../services/client-manager');
+const { registerClient, deleteClient, broadcast } = require('../services/client-manager');
 
 module.exports = (socket) => {
     // const payload = { obiad: '13:15'};
@@ -16,6 +16,7 @@ module.exports = (socket) => {
         try {
             const data = JSON.parse(payload);
             console.log('message', data);
+            broadcast(socket, data);
         } catch (err) {
             console.log(err);
         }

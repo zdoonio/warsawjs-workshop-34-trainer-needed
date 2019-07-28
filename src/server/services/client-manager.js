@@ -20,7 +20,17 @@ function deleteClient(client) {
     clients.splice(index, 1);
 }
 
+function broadcast(client, payload) {
+    console.log('broadcast', payload);
+    const data = JSON.stringify(payload);
+    clients.forEach(function(thisClient) {
+        if(thisClient !== client)
+            thisClient.send(data);
+    });
+}
+
 module.exports = {
     registerClient,
     deleteClient,
+    broadcast
 };
