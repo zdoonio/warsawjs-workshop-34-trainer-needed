@@ -2,8 +2,17 @@
     let socket = null;
 
     function sendMessage(data) {
+        console.log('sendMessage', data);
         const payload = JSON.stringify(data);
         socket.send(payload);
+    }
+
+    function reconnect() {
+        const time = 5678; // ms
+        setTimeout(() => {
+            console.log('reconnect', time);
+            setupServer();
+        }, time)
     }
 
     function setupServer() {
@@ -31,9 +40,11 @@
         });
         socket.addEventListener('close', () => {
             console.log('close');
+            reconnect();
         });
         socket.addEventListener('error', () => {
             console.log('error');
+            reconnect();
         });
     }
 
