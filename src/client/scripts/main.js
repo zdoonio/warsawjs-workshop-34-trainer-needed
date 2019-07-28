@@ -21,7 +21,13 @@
                 const payload = evt.data;
                 const data = JSON.parse(payload);
                 console.log('message', data);
-                alarm(data);
+                switch (data.action) {
+                    case 'alarm':
+                        document.dispatchEvent(new CustomEvent('alarm'));
+                        break;
+                    default:
+
+                }
             } catch (err) {
                 console.log(err);
             }

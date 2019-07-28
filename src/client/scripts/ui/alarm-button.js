@@ -5,7 +5,3 @@ function setupUI() {
         sendMessage({action: 'alarm'});
     });
 }
-
-function alarm() {
-    
-}
