@@ -1,5 +1,6 @@
 const ws = require('ws');
 const dotenv = require('dotenv');
+const process = require('process');
 const path = require('path');
 dotenv.config({
     path: path.join(__dirname, 'config', 'app.env')
