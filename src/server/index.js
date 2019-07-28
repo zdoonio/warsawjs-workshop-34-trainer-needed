@@ -6,22 +6,7 @@ dotenv.config({
 });
 
 const port = Number(process.env.PORT);
-
 const settings = { port };
 const server = new ws.Server(settings);
+require('./handlers/server.handler')(server);
 
-server.on('headers', () => {
-   console.log('headers');
-});
-
-server.on('connection', () => {
-    console.log('connection');
-});
-
-server.on('listening', () => {
-    console.log('listening');
-});
-
-server.on('error', () => {
-    console.log('error');
-});
