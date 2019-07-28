@@ -6,7 +6,7 @@ module.exports = (server) => {
     });
 
     server.on('connection', (socket, _request) => {
-        console.log('connection', socket);
+        console.log('connection');
         setupSocketHandler(socket);
     });
 

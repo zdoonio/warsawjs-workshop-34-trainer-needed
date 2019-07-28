@@ -8,6 +8,8 @@
 
         socket.addEventListener('open', () => {
             console.log('open');
+            const payload = {action: 'alarm'};
+            socket.send(JSON.stringify(payload));
         });
         socket.addEventListener('message', () => {
             console.log('message');
